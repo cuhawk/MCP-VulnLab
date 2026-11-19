@@ -1,0 +1,4 @@
+The offline source reviewer flags direct parameter flow into security-sensitive
+calls in decorated MCP tools. Review file destinations, subprocess argument
+handling, HTTP destination controls, deserialization, and tool descriptions.
+The test suite contains small parsed source examples for each diagnostic.
