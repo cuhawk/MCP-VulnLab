@@ -9,7 +9,9 @@ from .static_audit import audit_path
 def main():
     parser = argparse.ArgumentParser(prog="mcp-vulnlab")
     parser.add_argument("path", type=Path)
-    parser.add_argument("--format", choices=["json", "sarif"], default="json")
+    formats = parser.add_mutually_exclusive_group()
+    formats.add_argument("--format", choices=["json", "sarif"], default="json")
+    formats.add_argument("--sarif", dest="format", action="store_const", const="sarif")
     args = parser.parse_args()
     if not args.path.exists():
         parser.error("input path does not exist")
